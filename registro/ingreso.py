@@ -1,21 +1,26 @@
 class RegistrarIngreso:
     
     def __init__(self):
-        self.espacios = 5
+        self.espacios = 3
         self.vehiculosParquiados = []
         
         
     # funcion que valida si hay o no espacio para parquiar
     def validarEspacio(self):
-        if self.espacios >= len(self.vehiculosParquiados):
+        if len(self.vehiculosParquiados) >= self.espacios :
             print("no hay espacios disponibles para parquiar")
-            return True
-        else :
-            print("no hay espacios disponibles")
             return False
+        else :
+            print("si hay espacios disponibles")
+            return True
 
     # funcion que registra el vehiculo 
     def reguistrarVehiculo(self , placa , tipo , horaIngreso , horaSalida="none"):
+        
+        hayEspacios = self.validarEspacio()
+        
+        if hayEspacios == False :
+            return 
         
         tuplaVehiculo = (placa , tipo)
         
@@ -28,8 +33,9 @@ class RegistrarIngreso:
         
         self.vehiculosParquiados.append(vehiculo)
         
-        print("vehiculo regustrado correctamente")
-        # return self.vehiculosParquiados
+        print("vehiculo registrado correctamente")
+  
+        self.abrirBarrera()
 
     # funcion void que solo imprime mensajes de simulacion 
     def abrirBarrera(self):
