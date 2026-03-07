@@ -32,26 +32,22 @@ class RegistrarIngreso:
         }
         
         self.vehiculosParquiados.append( vehiculo)
-        print("\n")
+  
         print("vehiculo registrado correctamente")
         print("\n")
         
-        """ todosLosVehiculos = self.mostrarTodosVehiculos()
-        print(F"todos los vehiculos:  {todosLosVehiculos}") """
+        self.mostrarTodosVehiculos()
         self.abrirBarrera()
 
     # funcion void que solo imprime mensajes de simulacion 
     def abrirBarrera(self):
         print("\n")
         print("abrete sesamooo........!")
-        print("\n")
+        # print("\n")
         print("bienvenido 🤣")
         print("\n")
        
     # funcion que retorna la lista de vehiculos parquiados 
-    def mostrarTodosVehiculos(self):
-        """ vehiculos = self.vehiculosParquiados
-        print("\n")
-        print(F"vehiculos parquiados: {vehiculos}")
-        print("\n") """
+    def mostrarTodosVehiculos( self ):
+        print(f"vehuculos con self {self.vehiculosParquiados}")
         return self.vehiculosParquiados
