@@ -33,8 +33,7 @@ class RegistrarIngreso:
   
         print("vehiculo registrado correctamente")
         print("\n")
-        
-        self.mostrarTodosVehiculos()
+
         self.abrirBarrera()
 
     # funcion void que solo imprime mensajes de simulacion 
