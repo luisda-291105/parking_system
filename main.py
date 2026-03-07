@@ -26,11 +26,18 @@ def registrarSalidaVehiculoMain():
 
 if __name__ == "__main__":
     
-    opcion = int(input("ingrese // 1 para ingresar , 2 para salir: "))
-    if opcion == 1:
-        registrarIngresoVehiculoMain()
-    elif opcion == 2:
-        registrarSalidaVehiculoMain()
+    for  v in range(5):
+        print(f"""
+              - {v} -
+              - menu -
+              1 para ingresar 
+              2 para salir
+              """)
+        opcion = int(input("opcion aqui: "))
+        if opcion == 1:
+            registrarIngresoVehiculoMain()
+        elif opcion == 2:
+            registrarSalidaVehiculoMain()
     
     
  
