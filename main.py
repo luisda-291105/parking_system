@@ -24,7 +24,7 @@ def registrarSalidaVehiculoMain(salida):
 if __name__ == "__main__":
     # se instancia la clase 
     ingreso = RegistrarIngreso() 
-    salida = RegistroSalida()
+    salida = RegistroSalida(ingreso)
     
     for  v in range(5):
         print(
