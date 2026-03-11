@@ -1,5 +1,6 @@
 from registro.ingreso import RegistrarIngreso
 from registro.salida import RegistroSalida
+from mensajes.menu import *
 
 def registrarIngresoVehiculoMain(ingreso):
     # recibimos los datos
@@ -24,24 +25,10 @@ if __name__ == "__main__":
     ingreso = RegistrarIngreso() 
     salida = RegistroSalida(ingreso)
     
-    for  v in range(5):
-        print(
-f"""
-  - {v} -
-  - menu -
-  1 => registrar ingresar 
-  2 => registrar salir
-  3 => inventario
-""")
-        opcion = int(input("opcion aqui: "))
-        if opcion == 1:
-            registrarIngresoVehiculoMain(ingreso)
-        elif opcion == 2:
-            registrarSalidaVehiculoMain(salida)
-        elif opcion == 3:
-            ingreso.mostrarTodosVehiculos()
-        else:
-            print("error: obcion equivocada")
+    while True:
+       opcion = menuOpciones(ingreso , salida , registrarIngresoVehiculoMain , registrarSalidaVehiculoMain)
+       if opcion == False :
+           break
     
     
  
