@@ -62,9 +62,6 @@ def actualizarID(id , diccionario):
 
     conexion.commit()
 
-
-
-
 def eliminarID(id): # funcion parea eliminar filtrando por id
     # 15 esta parte es para mostrar los datos que se eliminaron por consola
     print(f" datos eliminado: {buscarDatosID(id)}")
