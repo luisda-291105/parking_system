@@ -1,7 +1,7 @@
 class RegistrarIngreso:
     
     def __init__(self):
-        self.espacios = 3
+        self.espacios = 5
         self.vehiculosParquiados = []
         
         
@@ -11,7 +11,7 @@ class RegistrarIngreso:
             print("❌ No hay espacios disponibles")
             return False
         else:
-            print(f"✅ Hay {self.espacios - len(self.vehiculosParquiados)} espacio(s)")
+            print(f"✅ Hay {(self.espacios - len(self.vehiculosParquiados)) - 1 } de {self.espacios} espacio(s)")
             return True
         
     # funcion que registra el vehiculo 
@@ -23,10 +23,10 @@ class RegistrarIngreso:
         tuplaVehiculo = (placa , tipo)
         
         vehiculo = {
-            "placa" : tuplaVehiculo[0] ,
-            "tipo" : tuplaVehiculo[1] ,
-            "horaIngreso" : horaIngreso,
-            "horaSalida" : horaSalida
+            "PLACA" : tuplaVehiculo[0] ,
+            "TIPO" : tuplaVehiculo[1] ,
+            "HORA_ENTRADA" : horaIngreso,
+            "HORA_SALIDA" : horaSalida
         }
         
         self.vehiculosParquiados.append(vehiculo)
@@ -50,4 +50,4 @@ class RegistrarIngreso:
         
         print(f"\n📋 VEHÍCULOS ({len(self.vehiculosParquiados)}/{self.espacios}):")
         for i, v in enumerate(self.vehiculosParquiados, 1):
-            print(f"{i}. {v['placa']} - {v['tipo']} - {v['horaIngreso']} - {v['horaSalida']}")
+            print(f"{i}. {v['PLACA']} - {v['TIPO']} - {v['HORA_ENTRADA']} - {v['HORA_SALIDA']}")
