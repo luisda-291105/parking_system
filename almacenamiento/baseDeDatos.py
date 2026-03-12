@@ -38,7 +38,18 @@ def buscarDatosID(id): # 9 funcion para buscar todos los datos de un vehiculo
         print(f" vehiculos : no encontrado")
         return False
     else:
+
         return  vehiculo
+
+def buscarTodos():
+    cursorBD.execute(''' SELECT * FROM VEHICULOS ''')
+    vehiculos = cursorBD.fetchall()
+    if len(vehiculos) == 0 :
+        print(f" vehiculos : no encontrado")
+    else:
+        print(F"vehiculos parquiados ")
+        for vehiculo in vehiculos:
+            print(f"vehiculo  = {vehiculo}")
 
 def eliminarID(id): # funcion parea eliminar filtrando por id
     # 15 esta parte es para mostrar los datos que se eliminaron por consola
