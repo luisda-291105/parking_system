@@ -31,22 +31,22 @@ def buscarDatosID(id): # 9 funcion para buscar todos los datos de un vehiculo
     cursorBD.execute(''' SELECT * FROM VEHICULOS WHERE ID = '{}' '''.format(id))
 
     # 11 obtengo los datos de la consulta
-    vehiculos = cursorBD.fetchall()
+    vehiculo = cursorBD.fetchall()
 
     # 12 valido si tiene o no contenido
-    if len(vehiculos) == 0 :
+    if len(vehiculo) == 0 :
         print(f" vehiculos : no encontrado")
-        return False 
+        return False
     else:
-        print(f" vehiculos : {vehiculos}")
-        return True
+        return  vehiculo
 
 def eliminarID(id): # funcion parea eliminar filtrando por id
+    # 15 esta parte es para mostrar los datos que se eliminaron por consola
+    print(f" datos eliminado: {buscarDatosID(id)}")
+
     # 13 consulta para eliminar por id
     cursorBD.execute(''' DELETE FROM VEHICULOS WHERE ID = '{}' '''.format(id))
     # 14 se hacen oficiales los cambios
     conexion.commit()
-    
-    # 15 esta parte es para mostrar los datos que se eliminaron por consola
-    datoEliminado = cursorBD.fetchall()
-    print(f" datos eliminado: {datoEliminado}")
+
+
