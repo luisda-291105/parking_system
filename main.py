@@ -1,6 +1,7 @@
 from registro.ingreso import RegistrarIngreso
 from registro.salida import RegistroSalida
 from mensajes.menu import *
+from almacenamiento.baseDeDatos import eliminarTodos
 
 def registrarIngresoVehiculoMain(ingreso):
     # recibimos los datos
@@ -29,6 +30,9 @@ if __name__ == "__main__":
        opcion = menuOpciones(ingreso , salida , registrarIngresoVehiculoMain , registrarSalidaVehiculoMain)
        if opcion == False :
            break
+       elif opcion == 10 :
+           eliminarTodos()
+
     
     
  
