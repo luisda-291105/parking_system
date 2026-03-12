@@ -41,9 +41,12 @@ def buscarDatosID(id): # 9 funcion para buscar todos los datos de un vehiculo
         print(f" vehiculos : {vehiculos}")
         return True
 
-
-# ingresarDatos('QXB87F' , 'MOTO' ,'1:00' , '5:00', '8000' )
-
-# tablaExiste('VEHICULOS')
-
-# buscarDatosID(1)
+def eliminarID(id): # funcion parea eliminar filtrando por id
+    # 13 consulta para eliminar por id
+    cursorBD.execute(''' DELETE FROM VEHICULOS WHERE ID = '{}' '''.format(id))
+    # 14 se hacen oficiales los cambios
+    conexion.commit()
+    
+    # 15 esta parte es para mostrar los datos que se eliminaron por consola
+    datoEliminado = cursorBD.fetchall()
+    print(f" datos eliminado: {datoEliminado}")
