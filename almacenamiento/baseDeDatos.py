@@ -23,7 +23,6 @@ def tablaExiste(nombreTabla):
         
         return False
 
-tablaExiste('VEHICULOS')
 
 # 7  con esta funcion busco hacer la funcionalidad del crud : crear 0 insertar datos 
 def ingresarDatos(placa , tipo , hora_entrada , hora_salida , total_pagar):
@@ -38,4 +37,28 @@ def ingresarDatos(placa , tipo , hora_entrada , hora_salida , total_pagar):
     print(f" hora_salida : {hora_salida}")
     print(f" total_pagar : {total_pagar}")
                 
-ingresarDatos('QXB87F' , 'MOTO' ,'1:00' , '5:00', '8000' )
+
+
+# 9 funcion para buscar todos los datos de un vehiculo
+def buscarDatosID(id):
+    # 10 consulta que busca la fila que coinsida con el id
+    cursorBD.execute(''' SELECT * FROM VEHICULOS WHERE ID = '{}' '''.format(id))
+
+    # 11 obtengo los datos de la consulta
+    vehiculos = cursorBD.fetchall()
+
+    # 12 valido si tiene o no contenido
+    if len(vehiculos) == 0 :
+        print(f" vehiculos : no encontrado")
+        return False 
+    else:
+        print(f" vehiculos : {vehiculos}")
+        return True
+
+
+
+# ingresarDatos('QXB87F' , 'MOTO' ,'1:00' , '5:00', '8000' )
+
+# tablaExiste('VEHICULOS')
+
+# buscarDatosID(1)
