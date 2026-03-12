@@ -20,6 +20,8 @@ def tablaExiste(nombreTabla): # 4 se verifica si la tabla existe o se crea una n
         
         return False
 
+tablaExiste('VEHICULOS')
+
 def ingresarDatos(placa , tipo , hora_entrada , hora_salida , total_pagar): # 7  con esta funcion busco hacer la funcionalidad del crud : crear 0 insertar datos 
     # 8 consulta que se usa para isertar los datos 
     cursorBD.execute('''INSERT INTO VEHICULOS (PLACA , TIPO , HORA_ENTRADA , HORA_SALIDA , TOTAL_PAGAR) VALUES (?,?,?,?,?)''',(placa, tipo, hora_entrada, hora_salida, total_pagar) )
@@ -41,6 +43,17 @@ def buscarDatosID(id): # 9 funcion para buscar todos los datos de un vehiculo
 
         return  vehiculo
 
+def buscarPlaca(placa):
+    cursorBD.execute(''' SELECT * FROM VEHICULOS WHERE PLACA = '{}' '''.format(placa))
+    vehiculo = cursorBD.fetchall()
+
+    if len(vehiculo) == 0:
+        print(f" vehiculos : no encontrado")
+        return False
+    else:
+        print(f"veiculo encontrado {vehiculo}")
+        return True
+
 def buscarTodos():
     cursorBD.execute(''' SELECT * FROM VEHICULOS ''')
     vehiculos = cursorBD.fetchall()
@@ -50,6 +63,8 @@ def buscarTodos():
         print(F"vehiculos parquiados ")
         for vehiculo in vehiculos:
             print(f"vehiculo  = {vehiculo}")
+
+    return vehiculos
 
 def actualizarID(id , diccionario):
     valoresValidos = ['PLACA' , 'TIPO' , 'HORA_ENTRADA' , 'HORA_SALIDA' , 'TOTAL_PAGAR' ]
@@ -71,4 +86,7 @@ def eliminarID(id): # funcion parea eliminar filtrando por id
     # 14 se hacen oficiales los cambios
     conexion.commit()
 
+def eliminarTodos():
+    cursorBD.execute(''' DELETE FROM VEHICULOS ''')
+    conexion.commit()
 
