@@ -51,6 +51,20 @@ def buscarTodos():
         for vehiculo in vehiculos:
             print(f"vehiculo  = {vehiculo}")
 
+def actualizarID(id , diccionario):
+    valoresValidos = ['PLACA' , 'TIPO' , 'HORA_ENTRADA' , 'HORA_SALIDA' , 'TOTAL_PAGAR' ]
+    for key in diccionario.keys():
+        if key not in valoresValidos:
+            print("clave incorrecta")
+            raise Exception("clave incorrecta")
+        else:
+            cursorBD.execute(''' UPDATE VEHICULOS SET {} = '{}' WHERE ID = {} '''.format(key, diccionario[key], id))
+
+    conexion.commit()
+
+
+
+
 def eliminarID(id): # funcion parea eliminar filtrando por id
     # 15 esta parte es para mostrar los datos que se eliminaron por consola
     print(f" datos eliminado: {buscarDatosID(id)}")
