@@ -1,7 +1,6 @@
 from almacenamiento.baseDeDatos import eliminarTodos
 
-
-def menuOpciones(ingreso, salida, registrarIngresoVehiculoMain, registrarSalidaVehiculoMain):
+def menuOpciones(ingreso, salida):
     while True:
         print("""
 ==============================
@@ -15,31 +14,39 @@ def menuOpciones(ingreso, salida, registrarIngresoVehiculoMain, registrarSalidaV
 ==============================
 """)
 
-        opcion = int(input("Seleccione una opción: "))
+        try:
+            opcion = int(input("Seleccione una opción: "))
+        except ValueError:
+            print("❌ Error: Debe ingresar un número")
+            input("Presione Enter para continuar...")
+            continue  # Vuelve al menú
 
         if opcion == 1:
-            registrarIngresoVehiculoMain(ingreso)
-            return True
+            ingreso.obtenerDatosVehiculo()
+            input("✅ Ingreso registrado. Presione Enter para continuar...")
+            # Sin return - vuelve al menú
 
         elif opcion == 2:
-            registrarSalidaVehiculoMain(salida)
-            return True
-
+            salida.obtenerDatosSalida()
+            input("✅ Salida registrada. Presione Enter para continuar...")
+            # Sin return - vuelve al menú
 
         elif opcion == 3:
             ingreso.mostrarTodosVehiculos()
-            return True
-
+            input("Presione Enter para continuar...")
+            # Sin return - vuelve al menú
 
         elif opcion == 4:
             print("Saliendo del sistema...")
-            return False
+            return False  # ÚNICO return - TERMINA el programa
 
         elif opcion == 10:
             eliminarTodos()
-            print("eliminando todos vehiculos...")
-            return True
+            print("✅ Todos los vehículos han sido eliminados")
+            input("Presione Enter para continuar...")
+            # Sin return - vuelve al menú
 
         else:
-            print("❌ Error: opción incorrecta")
-            return True
+            print("❌ Error: Opción incorrecta (use 1,2,3,4 o 10)")
+            input("Presione Enter para continuar...")
+            # Sin return - vuelve al menú
