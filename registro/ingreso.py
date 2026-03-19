@@ -4,6 +4,14 @@ class RegistrarIngreso:
         self.espacios = 3
         self.vehiculosParquiados = []
         
+    def initRegister(self):
+        # recibimos los datos
+        placa = input("ingrese la placa: ")
+        tipo = input("ingrese el tipo: ")
+        horaIngreso = input("ingrese la hora: ")
+        
+        # se envian a registrar los datos enviados
+        self.reguistrarVehiculo(placa , tipo , horaIngreso)
         
     # funcion que valida si hay o no espacio para parquiar
     def validarEspacio(self):
@@ -30,14 +38,10 @@ class RegistrarIngreso:
         }
         
         self.vehiculosParquiados.append(vehiculo)
-  
+        
         print("vehiculo registrado correctamente")
         print("\n")
 
-
-
-
-       
     # funcion que retorna la lista de vehiculos parquiados 
     def mostrarTodosVehiculos(self):
         if not self.vehiculosParquiados:
@@ -47,4 +51,5 @@ class RegistrarIngreso:
         print(f"\n📋 VEHÍCULOS ({len(self.vehiculosParquiados)}/{self.espacios}):")
         for i, v in enumerate(self.vehiculosParquiados, 1):
             print(f"{i}. {v['placa']} - {v['tipo']} - {v['horaIngreso']} - {v['horaSalida']}")
-            
+
+
