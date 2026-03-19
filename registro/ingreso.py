@@ -34,12 +34,8 @@ class RegistrarIngreso:
         print("vehiculo registrado correctamente")
         print("\n")
 
-        self.abrirBarrera()
 
-    # funcion void que solo imprime mensajes de simulacion 
-    def abrirBarrera(self):
-        print("\n")
-        print("ingrese ........!")
+
 
        
     # funcion que retorna la lista de vehiculos parquiados 
@@ -51,3 +47,4 @@ class RegistrarIngreso:
         print(f"\n📋 VEHÍCULOS ({len(self.vehiculosParquiados)}/{self.espacios}):")
         for i, v in enumerate(self.vehiculosParquiados, 1):
             print(f"{i}. {v['placa']} - {v['tipo']} - {v['horaIngreso']} - {v['horaSalida']}")
+            
