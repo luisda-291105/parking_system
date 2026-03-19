@@ -5,6 +5,13 @@ class RegistroSalida():
     def __init__(self , ingreso):
         self.ingreso = ingreso
 
+    def initExit(self):
+        # se obtiene la placa
+        placa = input("ingrese la placa: ")
+        
+        # se busca la placa para regustrar la salida
+        self.buscarVehiculo(placa)
+        
     def buscarVehiculo(self , placa ):
         
         """Busca un vehículo por placa"""
@@ -48,5 +55,3 @@ class RegistroSalida():
         print(f"   horas trabajadas: {hora_trabajadas}")
         print(f"   total a pagar: {total_pagar}")
         
-    def registrarPago(self):
-        pass
