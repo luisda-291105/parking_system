@@ -1,9 +1,25 @@
+""" REGISTRO DE INGRESO """
+# este modulo esta dedicado al registro de ingreso 
+# registra la placa ,tipo , hora de ingreso y la hora de salida = none
+
+# initRegister()              =   se encarga de iniciar el registro
+
+# validarEspacio()            =   se encarga de ver si hay espacio para estacionar
+
+# reguistrarVehiculo()        =   convertir los datos del vehiculo en un diccionario
+
+# mostrarTodosVehiculos()     =   busca en la lista todos los vehiculos registrados 
+                                # si no tiene contenido retorna un error 
+                                # si tiene los imprime por consola
+
+
 class RegistrarIngreso:
     
     def __init__(self):
         self.espacios = 3
         self.vehiculosParquiados = []
         
+    # funcion que inicia el registro
     def initRegister(self):
         # recibimos los datos
         placa = input("ingrese la placa: ")
