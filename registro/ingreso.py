@@ -11,14 +11,13 @@
 # mostrarTodosVehiculos()     =   busca en la lista todos los vehiculos registrados 
                                 # si no tiene contenido retorna un error 
                                 # si tiene los imprime por consola
-
+from almacenamiento.fileDB import read
 
 class RegistrarIngreso:
     
     def __init__(self):
-        self.espacios = 3
-        self.vehiculosParquiados = []
-        
+        self.espacios = 100
+        self.vehiculosParquiados = read()
         print("iniciando el registro de ingreso ...")
         
     # funcion que inicia el registro
