@@ -20,7 +20,6 @@ class RegistrarIngreso:
         self.vehiculosParquiados = []
         
         print("iniciando el registro de ingreso ...")
-        self.initRegister()
         
     # funcion que inicia el registro
     def initRegister(self):
