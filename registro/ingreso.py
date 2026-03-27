@@ -41,7 +41,7 @@ class RegistrarIngreso:
             return True
         
     # funcion que registra el vehiculo 
-    def reguistrarVehiculo(self , placa , tipo , horaIngreso , horaSalida="none"):
+    def reguistrarVehiculo(self , placa , tipo , horaIngreso , horaSalida=None):
         
         if not self.validarEspacio():
             return False
