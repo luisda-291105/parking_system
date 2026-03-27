@@ -14,7 +14,7 @@
 #                         reescribe la hora de salida que es por defecto none 
 #                         usando el modulo "datetime" cambiamos el formato de la hora "string" a hora militar
 #                         imprime las horas parquidas y el precio  total a pagar  
-
+from almacenamiento.fileDB import write
 from datetime import datetime
 
 class RegistroSalida():
@@ -74,6 +74,7 @@ class RegistroSalida():
         vehiculo["hora_trabajadas"] = hora_trabajadas
         vehiculo["total_pagar"] = total_pagar
         
+        write(vehiculo)
         self.imprimirVehiculoEncontrado( vehiculo)
         
     def imprimirVehiculoEncontrado(self , vehiculo):
