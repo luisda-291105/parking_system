@@ -1,7 +1,7 @@
 from registro.ingreso import RegistrarIngreso
 from registro.salida import RegistroSalida
-ingreso = RegistrarIngreso
-salida = RegistroSalida
+ingreso = RegistrarIngreso()
+salida = RegistroSalida(ingreso)
 
 def menuOpciones():
     while True:
