@@ -1,17 +1,34 @@
+""" REGISTRO DE SALIDA """
+# registra la salida de los vehiculos solo obteniendo el diccionario de vehiculo , registrando la 
+# hora de salida y caldulando la tarifa
+# initExit()         =    inicia el modulo de registro de salida 
+#                         recibe una placa
+
+# buscarVehiculo()   =    recibe la placa del "initExit()" para buscar y verificar si el vehiculo existe en
+#                         el parquiadero o no 
+#                         si existe el vehiculo lo imprime por consola
+#                         sino retorna un error de busqueda
+#                         si la lista de veiculos parquiados esta vacia tambien retorna un error 
+
+# calcularTarifa()   =    recibe la hora de salida y el diccionario vehiculo
+#                         reescribe la hora de salida que es por defecto none 
+#                         usando el modulo "datetime" cambiamos el formato de la hora "string" a hora militar
+#                         imprime las horas parquidas y el precio  total a pagar  
+
 from datetime import datetime
 
 class RegistroSalida():
     
     def __init__(self , ingreso):
         self.ingreso = ingreso
-
+    #  funcion que inicia el modulo
     def initExit(self):
         # se obtiene la placa
         placa = input("ingrese la placa: ")
         
         # se busca la placa para regustrar la salida
         self.buscarVehiculo(placa)
-        
+    # funcion que busca la existencia del vehiculo a salir
     def buscarVehiculo(self , placa ):
         
         """Busca un vehículo por placa"""
@@ -36,7 +53,7 @@ class RegistroSalida():
         # Si no se encontró
         print(f"❌ No se encontró vehículo con placa {placa}")
         return None
-    
+    # funcion que calcula e imprime  el la factura 
     def calcularTarifa(self , salidaInput ,  vehiculo  ):
         # agregamos la hora de salida al objeto vehiculo seleccionado
         vehiculo['horaSalida'] = salidaInput
