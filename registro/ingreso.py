@@ -70,7 +70,7 @@ class RegistrarIngreso:
         
         print(f"\n📋 VEHÍCULOS parquiados({len(self.vehiculosParquiados)}/{self.espacios}):")
         for i, v in enumerate(self.vehiculosParquiados, 1):
-            print(f"{i}. {v['placa']} - {v['tipo']} - {v['horaIngreso']} ")
+            print(f"{i}. {v['placa']} - {v['tipo']} - {v['horaIngreso']} - {v['horaSalida']} ")
             
     
 
