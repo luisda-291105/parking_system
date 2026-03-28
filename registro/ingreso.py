@@ -19,7 +19,8 @@ class RegistrarIngreso:
     def __init__(self):
         self.bd = FileDB()
         self.espacios = 100
-        self.vehiculosParquiados = self.bd.read() or []
+        self.vehiculosParquiados = self.bd.readStagied() or []
+        self.vehiculosParquiadosSalieron = self.bd.readLog() or []
         print("iniciando el registro de ingreso ...")
         
     # funcion que inicia el registro
@@ -56,19 +57,21 @@ class RegistrarIngreso:
             "horaSalida" : horaSalida
         }
         
+        self.bd.write(vehiculo)
         self.vehiculosParquiados.append(vehiculo)
         
         print("vehiculo registrado correctamente")
         print("\n")
 
-    # funcion que retorna la lista de vehiculos parquiados 
-    def mostrarTodosVehiculos(self):
+    # funcion que retorna la lista de vehiculos parquiados  staged
+    def mostrarTodosVehiculosParquiados(self):
         if not self.vehiculosParquiados:
             print("⚠️ No hay vehículos")
             return
         
-        print(f"\n📋 VEHÍCULOS ({len(self.vehiculosParquiados)}/{self.espacios}):")
+        print(f"\n📋 VEHÍCULOS parquiados({len(self.vehiculosParquiados)}/{self.espacios}):")
         for i, v in enumerate(self.vehiculosParquiados, 1):
-            print(f"{i}. {v['placa']} - {v['tipo']} - {v['horaIngreso']} - {v['horaSalida']}")
-
+            print(f"{i}. {v['placa']} - {v['tipo']} - {v['horaIngreso']} ")
+            
+    
 

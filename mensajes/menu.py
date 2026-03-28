@@ -30,12 +30,12 @@ def menuOpciones():
 
 
             elif opcion == 3:
-                ingreso.mostrarTodosVehiculos()
+                ingreso.mostrarTodosVehiculosParquiados()
                 return True
 
 
             elif opcion == 4:
-                ingreso.mostrarTodosVehiculosLog()
+                ingreso.mostrarTodosVehiculosSalida()
                 return True
             
             elif opcion == 5:

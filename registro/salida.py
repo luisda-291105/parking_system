@@ -77,9 +77,10 @@ class RegistroSalida():
         vehiculo["hora_trabajadas"] = hora_trabajadas
         vehiculo["total_pagar"] = total_pagar
         
-        self.bd.write(vehiculo )
+        self.bd.writeSalida(vehiculo)
         self.imprimirVehiculoEncontrado( vehiculo)
         
+    # funcion que imprime los vehiculos encontrados en consola
     def imprimirVehiculoEncontrado(self , vehiculo):
         print("\n")
         print(f"✅ Vehículo encontrado:")
@@ -93,4 +94,15 @@ class RegistroSalida():
         print("    TARIFA")
         print(f"   horas parquiado: {vehiculo['hora_trabajadas']}")
         print(f"   total a pagar: {vehiculo['total_pagar']}")
+    
         
+    # funcion que retorna la lista de vehiculos parquiados  logs
+    def mostrarTodosVehiculosSalida(self):
+        if not self.vehiculosParquiadosSalieron:
+            print("⚠️ No hay vehículos")
+            return
+        
+        print(f"\n💨 VEHÍCULOS salieron ({len(self.vehiculosParquiadosSalieron)}):")
+        for i, v in enumerate(self.vehiculosParquiadosSalieron, 1):
+            print(f"{i}. {v['placa']} - {v['tipo']} - {v['horaIngreso']} - {v['horaSalida']}")
+
