@@ -56,7 +56,8 @@ class FileDB:
     # funcion que guarda a los que acabaron de entrar
     def escribeIngreso(self , vehiculo):
         try:
-            with open(self.parquiaderoAcual , "w" , encoding="utf-8" ) as archivo:
+            with open(self.parquiaderoAcual , "a" , encoding="utf-8" ) as archivo:
                 archivo.write( f"{vehiculo}  \n")
         except TypeError:
             print(f"error al agregar ")
+
