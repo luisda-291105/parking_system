@@ -23,6 +23,7 @@ class RegistroSalida():
     
     def __init__(self , ingreso):
         self.bd = FileDB()
+        self.vehiculosParquiadosSalieron = self.bd.leerHistorialSalida() or []
         self.ingreso = ingreso
     
     #  funcion que inicia el modulo
@@ -77,7 +78,7 @@ class RegistroSalida():
         vehiculo["hora_trabajadas"] = hora_trabajadas
         vehiculo["total_pagar"] = total_pagar
         
-        self.bd.writeSalida(vehiculo)
+        self.bd.escribirSalida(vehiculo)
         self.imprimirVehiculoEncontrado( vehiculo)
         
     # funcion que imprime los vehiculos encontrados en consola

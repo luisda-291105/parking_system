@@ -20,7 +20,6 @@ class RegistrarIngreso:
         self.bd = FileDB()
         self.espacios = 100
         self.vehiculosParquiados = self.bd.readStagied() or []
-        self.vehiculosParquiadosSalieron = self.bd.readLog() or []
         print("iniciando el registro de ingreso ...")
         
     # funcion que inicia el registro
@@ -57,7 +56,7 @@ class RegistrarIngreso:
             "horaSalida" : horaSalida
         }
         
-        self.bd.write(vehiculo)
+        self.bd.escribeIngreso(vehiculo)
         self.vehiculosParquiados.append(vehiculo)
         
         print("vehiculo registrado correctamente")
