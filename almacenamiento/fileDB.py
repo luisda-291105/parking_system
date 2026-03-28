@@ -13,6 +13,10 @@ import ast
 # escribeIngreso()           =  crear si no existe y 
 #                               de agregar los nuevos vehiculos despues de ingresar
 
+# filtrarSalidas()           =  filtra solo las placas que tienen la hora de salida establecida
+
+# eliminarDuplicados()       =  elimina los duplicados despues de filtrarse y los guarda en un archivo
+
 class FileDB:
     def __init__(self ):
         self.parquiaderoAcual =  "parquiaderoAcual.cvs"
@@ -60,12 +64,32 @@ class FileDB:
                 archivo.write( f"{vehiculo}  \n")
         except TypeError:
             print(f"error al agregar ")
-
-        
+  
     # funcion que filtra solo los que ya tienen una hora de salida
     def filtrarSalidas(self):
         vehiculos = self.leerVehiculosParquiados()
+        unico_vehiculo = []
+        
         for v in vehiculos:
             if v["horaSalida"] is not None:
-                self.escribirSalida(v) 
+                unico_vehiculo.append(v)
             
+        self.eliminarDuplicados(unico_vehiculo)  
+                
+    # funcion que elimina los duplicados y los guarda en un archivo
+    def eliminarDuplicados(self , vehiculosAfuera):
+        vistos = set()
+
+        unicos = []
+        duplicados = []
+
+        for v in vehiculosAfuera:
+            if v["placa"] not in vistos:
+                unicos.append(v)
+                vistos.add(v["placa"] )
+            else :
+                duplicados.append(v)
+                
+        self.escribirSalida(unicos)
+
+         
