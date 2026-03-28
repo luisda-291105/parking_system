@@ -51,7 +51,7 @@ class FileDB:
             with open( self.historialSalida, "a" , encoding="utf-8" ) as archivo:
                 archivo.write( f"{vehiculo}  \n")
         except TypeError:
-            print(f"error al agregar ")
+            print(f"error al agregar salida")
             
     # funcion que guarda a los que acabaron de entrar
     def escribeIngreso(self , vehiculo):
@@ -61,3 +61,11 @@ class FileDB:
         except TypeError:
             print(f"error al agregar ")
 
+        
+    # funcion que filtra solo los que ya tienen una hora de salida
+    def filtrarSalidas(self):
+        vehiculos = self.leerVehiculosParquiados()
+        for v in vehiculos:
+            if v["horaSalida"] is not None:
+                self.escribirSalida(v) 
+            
