@@ -11,8 +11,9 @@ def menuOpciones():
 ==============================
 1 => Registrar ingreso
 2 => Registrar salida
-3 => Ver inventario
-4 => Salir
+3 => Ver inventario actual
+4 => Ver inventario salieron
+5 => Salir
 ==============================
 """)
  
@@ -34,6 +35,10 @@ def menuOpciones():
 
 
             elif opcion == 4:
+                ingreso.mostrarTodosVehiculosLog()
+                return True
+            
+            elif opcion == 5:
                 print("Saliendo del sistema...")
                 return False
 
