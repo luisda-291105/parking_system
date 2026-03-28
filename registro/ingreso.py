@@ -19,7 +19,7 @@ class RegistrarIngreso:
     def __init__(self):
         self.bd = FileDB()
         self.espacios = 100
-        self.vehiculosParquiados = self.bd.readStagied() or []
+        self.vehiculosParquiados = self.bd.leerVehiculosParquiados() or []
         print("iniciando el registro de ingreso ...")
         
     # funcion que inicia el registro
