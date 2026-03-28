@@ -1,3 +1,5 @@
+from almacenamiento.fileDB import FileDB
+
 """ REGISTRO DE INGRESO """
 # este modulo esta dedicado al registro de ingreso 
 # registra la placa ,tipo , hora de ingreso y la hora de salida = none
@@ -11,13 +13,13 @@
 # mostrarTodosVehiculos()     =   busca en la lista todos los vehiculos registrados 
                                 # si no tiene contenido retorna un error 
                                 # si tiene los imprime por consola
-from almacenamiento.fileDB import read
 
 class RegistrarIngreso:
     
     def __init__(self):
+        self.bd = FileDB()
         self.espacios = 100
-        self.vehiculosParquiados = read()
+        self.vehiculosParquiados = self.bd.read() or []
         print("iniciando el registro de ingreso ...")
         
     # funcion que inicia el registro

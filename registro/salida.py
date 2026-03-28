@@ -1,3 +1,6 @@
+from almacenamiento.fileDB import FileDB
+from datetime import datetime
+
 """ REGISTRO DE SALIDA """
 # registra la salida de los vehiculos solo obteniendo el diccionario de vehiculo , registrando la 
 # hora de salida y caldulando la tarifa
@@ -14,12 +17,12 @@
 #                         reescribe la hora de salida que es por defecto none 
 #                         usando el modulo "datetime" cambiamos el formato de la hora "string" a hora militar
 #                         imprime las horas parquidas y el precio  total a pagar  
-from almacenamiento.fileDB import write
-from datetime import datetime
+
 
 class RegistroSalida():
     
     def __init__(self , ingreso):
+        self.bd = FileDB()
         self.ingreso = ingreso
     
     #  funcion que inicia el modulo
@@ -74,7 +77,7 @@ class RegistroSalida():
         vehiculo["hora_trabajadas"] = hora_trabajadas
         vehiculo["total_pagar"] = total_pagar
         
-        write(vehiculo)
+        self.bd.write(vehiculo )
         self.imprimirVehiculoEncontrado( vehiculo)
         
     def imprimirVehiculoEncontrado(self , vehiculo):
