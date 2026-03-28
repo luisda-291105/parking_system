@@ -78,7 +78,7 @@ class RegistroSalida():
         vehiculo["hora_trabajadas"] = hora_trabajadas
         vehiculo["total_pagar"] = total_pagar
         
-        self.bd.escribeIngreso(vehiculo)
+        self.bd.escribirSalida(vehiculo)
         self.imprimirVehiculoEncontrado( vehiculo)
         
     # funcion que imprime los vehiculos encontrados en consola

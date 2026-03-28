@@ -35,7 +35,7 @@ def menuOpciones():
 
 
             elif opcion == 4:
-                ingreso.mostrarTodosVehiculosSalida()
+                salida.mostrarTodosVehiculosSalida()
                 return True
             
             elif opcion == 5:
