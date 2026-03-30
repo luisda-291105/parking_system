@@ -15,14 +15,12 @@ class RegistrarIngreso:
         vehiculos_parquiados (list): Lista de vehículos actualmente registrados.
     """
 
-    def __init__(self, espacios_disponibles: int = 1000):
+    def __init__(self, vehiculos_parquiados , espacios_disponibles):
         self.espacios_disponibles = espacios_disponibles        
-        self.vehiculos_parquiados = []
+        self.vehiculos_parquiados = vehiculos_parquiados
+        
         self.validar = Validar(self.vehiculos_parquiados, self.espacios_disponibles)
-        self.mostrar_mensajes = MensajeMostrar(                
-            self.vehiculos_parquiados,
-            self.espacios_disponibles
-        )
+        self.mostrar_mensajes = MensajeMostrar(self.vehiculos_parquiados, self.espacios_disponibles)
         self.almacenamiento = Almacenamiento()
 
     def iniciar_registro_ingreso(self) -> None:
@@ -30,9 +28,9 @@ class RegistrarIngreso:
         Solicita los datos del vehículo al usuario e inicia el registro.
         """
         try:
-            placa_input      = input("Ingrese la placa: ").strip().upper()
-            tipo_input       = input("Ingrese el tipo de vehículo: ").strip().upper()
-            hora_ingreso_input = input("Ingrese la hora de ingreso: ").strip()
+            placa_input         = input("Ingrese la placa: ").strip().upper()
+            tipo_input          = input("Ingrese el tipo de vehículo: ").strip().upper()
+            hora_ingreso_input  = input("Ingrese la hora de ingreso: ").strip()
 
             self.registrar_ingreso_vehiculo(placa_input, tipo_input, hora_ingreso_input)
 

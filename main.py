@@ -1,13 +1,11 @@
-from mensajes.menu import *
+from Mensajes.menu import Menu
 
 
 if __name__ == "__main__":
-
+    menu = Menu()
     
-    while True:
-       opcion = menuOpciones()
-       if opcion == False :
-           break
+    menu.ejecutar()
+    
     
     
  
