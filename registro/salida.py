@@ -1,5 +1,6 @@
 from almacenamiento.fileDB import FileDB
 from datetime import datetime
+from mensajes.imprimir import *
 
 """ REGISTRO DE SALIDA """
 # registra la salida de los vehiculos solo obteniendo el diccionario de vehiculo , registrando la 
@@ -23,8 +24,9 @@ class RegistroSalida():
     
     def __init__(self , ingreso):
         self.bd = FileDB()
-        self.vehiculosParquiadosSalieron = self.bd.leerHistorialSalida() or []
+        self.vehiculosParquiados = self.bd.historial_actual() or []
         self.ingreso = ingreso
+        print("iniciando el registro de salida ...")
     
     #  funcion que inicia el modulo
     def initExit(self):
@@ -78,32 +80,8 @@ class RegistroSalida():
         vehiculo["hora_trabajadas"] = hora_trabajadas
         vehiculo["total_pagar"] = total_pagar
         
-        self.bd.escribirSalida(vehiculo)
-        self.imprimirVehiculoEncontrado( vehiculo)
+        self.bd.escribe(vehiculo)
+        imprimirVehiculoEncontrado(vehiculo)
         
-    # funcion que imprime los vehiculos encontrados en consola
-    def imprimirVehiculoEncontrado(self , vehiculo):
-        print("\n")
-        print(f"✅ Vehículo encontrado:")
-        print(f"   Tipo: {vehiculo['tipo']}")
-        print(f"   Placa: {vehiculo['placa']}")
-        print(f"   Ingreso: {vehiculo['horaIngreso']}")
-        print(f"   Salida: {vehiculo['horaSalida']}")
-        
-        print("\n")
-        # muestra la tarifa
-        print("    TARIFA")
-        print(f"   horas parquiado: {vehiculo['hora_trabajadas']}")
-        print(f"   total a pagar: {vehiculo['total_pagar']}")
     
-        
-    # funcion que retorna la lista de vehiculos parquiados  logs
-    def mostrarTodosVehiculosSalida(self):
-        if not self.vehiculosParquiadosSalieron:
-            print("⚠️ No hay vehículos")
-            return
-        
-        print(f"\n💨 VEHÍCULOS salieron ({len(self.vehiculosParquiadosSalieron)}):")
-        for i, v in enumerate(self.vehiculosParquiadosSalieron, 1):
-            print(f"{i}. {v['placa']} - {v['tipo']} - {v['horaIngreso']} - {v['horaSalida']}")
 

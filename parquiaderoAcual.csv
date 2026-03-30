@@ -1,2 +1,7 @@
 {'placa': 'eee111', 'tipo': 'c', 'horaIngreso': '3:00', 'horaSalida': None}  
 {'placa': 'wer123', 'tipo': 'c', 'horaIngreso': '1:00', 'horaSalida': None}  
+{'placa': 'rrr333', 'tipo': 'c', 'horaIngreso': '4:00', 'horaSalida': None}  
+{'placa': 'nnn33n', 'tipo': 'm', 'horaIngreso': '1:00', 'horaSalida': None}  
+{'placa': 'fdf123', 'tipo': 'c', 'horaIngreso': '2:00', 'horaSalida': None}  
+{'placa': 'kkk44k', 'tipo': 'm', 'horaIngreso': '1:00', 'horaSalida': None}  
+{'placa': 'eee111', 'tipo': 'c', 'horaIngreso': '3:00', 'horaSalida': '9:00', 'hora_trabajadas': 6.0, 'total_pagar': 9000.0}  

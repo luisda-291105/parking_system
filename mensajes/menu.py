@@ -1,8 +1,10 @@
 from registro.ingreso import RegistrarIngreso
 from registro.salida import RegistroSalida
+from mensajes.imprimir import *
 ingreso = RegistrarIngreso()
 salida = RegistroSalida(ingreso)
 
+# menu principal de obciones de navegacion
 def menuOpciones():
     while True:
         print("""
@@ -12,8 +14,7 @@ def menuOpciones():
 1 => Registrar ingreso
 2 => Registrar salida
 3 => Ver inventario actual
-4 => Ver inventario salieron
-5 => Salir
+4 => Salir
 ==============================
 """)
  
@@ -30,15 +31,11 @@ def menuOpciones():
 
 
             elif opcion == 3:
-                ingreso.mostrarTodosVehiculosParquiados()
+                mostrarVehiculosParquiados(ingreso.vehiculosParquiados , ingreso.espacios)
                 return True
 
-
-            elif opcion == 4:
-                salida.mostrarTodosVehiculosSalida()
-                return True
             
-            elif opcion == 5:
+            elif opcion == 4:
                 print("Saliendo del sistema...")
                 return False
 
