@@ -4,7 +4,7 @@ Módulo de registro de ingreso de vehículos al parqueadero.
 
 from Mensajes.validar import Validar
 from Mensajes.mostrar import MensajeMostrar
-
+from almacenamiento.almacen_archivo import Almacenamiento
 
 class RegistrarIngreso:
     """
@@ -23,6 +23,7 @@ class RegistrarIngreso:
             self.vehiculos_parquiados,
             self.espacios_disponibles
         )
+        self.almacenamiento = Almacenamiento()
 
     def iniciar_registro_ingreso(self) -> None:
         """
@@ -85,6 +86,7 @@ class RegistrarIngreso:
             }
 
             self.vehiculos_parquiados.append(vehiculo)
+            self.almacenamiento.escribir(vehiculo)
             print(f"✅ Vehículo {placa} registrado correctamente.")
             return True
 
