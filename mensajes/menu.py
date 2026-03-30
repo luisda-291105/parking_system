@@ -18,8 +18,11 @@ class Menu:
 
 
     def __init__(self):
+        # se coloco mas arriba pra poder cargar los vehiculos parquiados actualmente as teniendo permanencia
+        self.almacenamiento = Almacenamiento()
+        
         # ✅ Lista compartida — todos los módulos apuntan a la misma
-        self.vehiculos_parquiados = []
+        self.vehiculos_parquiados = self.almacenamiento.leer_como_lista() or []
         self.ESPACIOS_DISPONIBLES = 1000
 
         # ✅ Instanciamos pasando la lista compartida
@@ -35,7 +38,6 @@ class Menu:
             self.vehiculos_parquiados,
             self.ESPACIOS_DISPONIBLES
         )
-        self.almacenamiento = Almacenamiento()
 
     def mostrar_menu(self) -> None:
         """Imprime las opciones del menú en consola."""
