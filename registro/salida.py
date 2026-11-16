@@ -3,8 +3,8 @@ Módulo de registro de salida de vehículos del parqueadero.
 """
 
 from datetime import datetime
-from Mensajes.mostrar import MensajeMostrar
-from Mensajes.validar import Validar
+from mensajes.mostrar import MensajeMostrar
+from mensajes.validar import Validar
 
 
 class RegistroSalida:

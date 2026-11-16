@@ -2,8 +2,8 @@
 Módulo de registro de ingreso de vehículos al parqueadero.
 """
 
-from Mensajes.validar import Validar
-from Mensajes.mostrar import MensajeMostrar
+from mensajes.validar import Validar
+from mensajes.mostrar import MensajeMostrar
 
 
 class RegistrarIngreso:

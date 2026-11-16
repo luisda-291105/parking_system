@@ -1,7 +1,10 @@
 from registro.ingreso import RegistrarIngreso
 from registro.salida import RegistroSalida
+from mensajes.mostrar import MensajeMostrar
+
 ingreso = RegistrarIngreso()
-salida = RegistroSalida(ingreso)
+salida = RegistroSalida(ingreso.vehiculos_parquiados, ingreso.espacios_disponibles)
+
 
 def menuOpciones():
     while True:
@@ -15,28 +18,28 @@ def menuOpciones():
 4 => Salir
 ==============================
 """)
- 
+
         try:
             opcion = int(input("Seleccione una opción: "))
 
             if opcion == 1:
-                ingreso.initRegister()
+                ingreso.iniciar_registro_ingreso()
                 return True
 
             elif opcion == 2:
-                salida.initExit()
+                salida.iniciar_registro_salida()
                 return True
-
 
             elif opcion == 3:
-                ingreso.mostrarTodosVehiculos()
+                MensajeMostrar(
+                    ingreso.vehiculos_parquiados,
+                    ingreso.espacios_disponibles
+                ).mostrar_todos_los_vehiculos()
                 return True
-
 
             elif opcion == 4:
                 print("Saliendo del sistema...")
                 return False
-
 
             else:
                 print("❌ Error: opción incorrecta")
@@ -44,4 +47,3 @@ def menuOpciones():
 
         except ValueError:
             print("❌ Debe ingresar un número")
-            
