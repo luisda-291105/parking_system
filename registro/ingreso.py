@@ -7,20 +7,18 @@ class RegistrarIngreso:
         
     # funcion que valida si hay o no espacio para parquiar
     def validarEspacio(self):
-        if len(self.vehiculosParquiados) >= self.espacios :
-            print("no hay espacios disponibles para parquiar")
+        if len(self.vehiculosParquiados) >= self.espacios:
+            print("❌ No hay espacios disponibles")
             return False
-        else :
-            print("si hay espacios disponibles")
+        else:
+            print(f"✅ Hay {self.espacios - len(self.vehiculosParquiados)} espacio(s)")
             return True
-
+        
     # funcion que registra el vehiculo 
     def reguistrarVehiculo(self , placa , tipo , horaIngreso , horaSalida="none"):
         
-        hayEspacios = self.validarEspacio()
-        
-        if hayEspacios == False :
-            return 
+        if not self.validarEspacio():
+            return False
         
         tuplaVehiculo = (placa , tipo)
         
@@ -32,12 +30,24 @@ class RegistrarIngreso:
         }
         
         self.vehiculosParquiados.append(vehiculo)
-        
-        print("vehiculo registrado correctamente")
   
+        print("vehiculo registrado correctamente")
+        print("\n")
+
         self.abrirBarrera()
 
     # funcion void que solo imprime mensajes de simulacion 
     def abrirBarrera(self):
-        print("abrete sesamooo........!")
-        print("bienvenido 🤣")
+        print("\n")
+        print("ingrese ........!")
+
+       
+    # funcion que retorna la lista de vehiculos parquiados 
+    def mostrarTodosVehiculos(self):
+        if not self.vehiculosParquiados:
+            print("⚠️ No hay vehículos")
+            return
+        
+        print(f"\n📋 VEHÍCULOS ({len(self.vehiculosParquiados)}/{self.espacios}):")
+        for i, v in enumerate(self.vehiculosParquiados, 1):
+            print(f"{i}. {v['placa']} - {v['tipo']} - {v['horaIngreso']} - {v['horaSalida']}")
