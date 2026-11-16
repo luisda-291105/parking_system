@@ -1,5 +1,9 @@
+from registro.ingreso import RegistrarIngreso
+from registro.salida import RegistroSalida
+ingreso = RegistrarIngreso()
+salida = RegistroSalida(ingreso)
 
-def menuOpciones(ingreso , salida  ,  registrarIngresoVehiculoMain , registrarSalidaVehiculoMain):
+def menuOpciones():
     while True:
         print("""
 ==============================
@@ -16,11 +20,11 @@ def menuOpciones(ingreso , salida  ,  registrarIngresoVehiculoMain , registrarSa
             opcion = int(input("Seleccione una opción: "))
 
             if opcion == 1:
-                registrarIngresoVehiculoMain(ingreso)
+                ingreso.initRegister()
                 return True
 
             elif opcion == 2:
-                registrarSalidaVehiculoMain(salida)
+                salida.initExit()
                 return True
 
 
